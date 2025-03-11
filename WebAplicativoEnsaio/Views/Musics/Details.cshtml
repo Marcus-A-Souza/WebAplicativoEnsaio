@@ -1,0 +1,13 @@
+﻿@model WebAplicativoEnsaio.Models.Musics
+
+<h1>Detalhes da Música</h1>
+
+<div>
+    <h4>@Model.Title</h4>
+    <p>@Model.Notes</p>
+    <p><a href="@Model.YouTubeLink">Link do YouTube</a></p>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>
+

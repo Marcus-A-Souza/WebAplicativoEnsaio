@@ -1,0 +1,27 @@
+﻿@model WebAplicativoEnsaio.Models.Musico
+
+@{
+    ViewData["Title"] = "Excluir Músico";
+}
+
+<h1>Excluir Músico</h1>
+
+<h3>Você tem certeza que deseja excluir este músico?</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Nome</dt>
+        <dd class="col-sm-10">@Model.Nome</dd>
+
+        <dt class="col-sm-2">Grupo</dt>
+        <dd class="col-sm-10">@Model.Grupo</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+

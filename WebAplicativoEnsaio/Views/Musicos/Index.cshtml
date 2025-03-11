@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebAplicativoEnsaio.Models.Musico>
+
+@{
+    ViewData["Title"] = "Lista de Músicos";
+}
+
+<h1 class="my-4">Lista de Músicos</h1>
+
+<div class="mb-3">
+    <a asp-action="Create" class="btn btn-primary">Adicionar Novo Músico</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Voltar para Inicio</a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Grupo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var musico in Model)
+        {
+            <tr>
+                <td>@musico.Nome</td>
+                <td>@musico.Grupo</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@musico.Id" class="btn btn-sm btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@musico.Id" class="btn btn-sm btn-danger">Excluir</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

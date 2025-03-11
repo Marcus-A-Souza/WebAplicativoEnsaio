@@ -1,0 +1,36 @@
+﻿@model WebAplicativoEnsaio.Models.Musics
+
+@{
+    ViewData["Title"] = "Excluir Música";
+}
+
+<h1>Excluir Música</h1>
+
+<div class="alert alert-warning">
+    Tem certeza de que deseja excluir esta música?
+</div>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Título</th>
+        <td>@Model.Title</td>
+    </tr>
+    <tr>
+        <th>Observações</th>
+        <td>@Model.Notes</td>
+    </tr>
+    <tr>
+        <th>Link do YouTube</th>
+        <td><a href="@Model.YouTubeLink" target="_blank">Abrir Link</a></td>
+    </tr>
+    <tr>
+        <th>Data de Criação</th>
+        <td>@Model.CreatedAt.ToString("dd/MM/yyyy")</td>
+    </tr>
+</table>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

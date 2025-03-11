@@ -1,0 +1,170 @@
+/* Configurações globais */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    margin-bottom: 60px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff; /* Cor padrão do texto */
+}
+
+/* Header */
+header {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Botões e inputs */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.btn-outline-primary {
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-outline-primary:hover {
+        background-color: #2575fc;
+    }
+
+/* Tabelas */
+table {
+    color: #fff; /* Cor padrão do texto dentro das tabelas */
+}
+
+    table th,
+    table td {
+        color: #fff; /* Células da tabela */
+    }
+
+    table a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+        table a:hover {
+            color: #ddd; /* Links ficam cinza claro ao passar o mouse */
+        }
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1; /* Destaque ao passar o mouse */
+}
+
+.table-dark th {
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Cards */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-header {
+    font-size: 1.25rem;
+    font-weight: bold;
+    background-color: #6a11cb;
+    color: white;
+}
+
+/* Formulários */
+form {
+    background-color: #fff;
+    color: #333; /* Cor do texto dentro do formulário */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+    form .form-group label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    form .form-control {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    form .btn-primary {
+        background-color: #6a11cb;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        form .btn-primary:hover {
+            background-color: #2575fc;
+        }
+
+    form .text-center a {
+        color: #6a11cb;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        form .text-center a:hover {
+            text-decoration: underline;
+        }
+
+/* Footer */
+footer {
+    background: #222;
+    color: #bbb;
+}
+
+/* Outros elementos */
+.features .feature-box {
+    background-color: white;
+    border: 1px solid #ddd;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .features .feature-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+.about {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Classes específicas */
+.music-text {
+    color: black;
+}
+body {
+    min-height: 100vh;
+    display: block;
+}

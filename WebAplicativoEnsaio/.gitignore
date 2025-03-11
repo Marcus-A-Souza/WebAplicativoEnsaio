@@ -1,0 +1,19 @@
+# Pastas e arquivos do Visual Studio que devem ser ignorados
+.vs/
+*.suo
+*.user
+*.cache
+*.pdb
+*.obj
+*.exe
+*.dll
+*.log
+*.sql
+*.mdf
+*.ldf
+
+# Configurações temporárias do Git e do VS
+*.vscode/
+*.idea/
+*.DS_Store
+*.log

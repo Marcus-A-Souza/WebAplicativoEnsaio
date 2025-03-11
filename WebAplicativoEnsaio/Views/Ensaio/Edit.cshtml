@@ -1,0 +1,47 @@
+﻿@model WebAplicativoEnsaio.Models.Ensaio
+
+@{
+    ViewData["Title"] = "Editar Ensaio";
+}
+
+<h1>Editar Ensaio</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Date"></label>
+        <input asp-for="Date" class="form-control" type="date" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Músicas</label>
+        @foreach (var music in (ViewBag.Musics as IEnumerable<WebAplicativoEnsaio.Models.Musics>))
+        {
+            <div>
+                <input type="checkbox" name="selectedMusicIds" value="@music.Id"
+                @(Model.Musics != null && Model.Musics.Any(m => m.Id == music.Id) ? "checked" : "") />
+                @music.Title
+            </div>
+        }
+    </div>
+
+    <div class="form-group">
+        <label asp-for="GrupoSelecionado"></label>
+        <select asp-for="GrupoSelecionado" class="form-control">
+            <option value="Grupo A" >Grupo A</option>
+            <option value="Grupo B" >Grupo B</option>
+        </select>
+        <span asp-validation-for="GrupoSelecionado" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="List" class="btn btn-secondary">Cancelar</a>
+</form>

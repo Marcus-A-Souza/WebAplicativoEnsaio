@@ -1,0 +1,45 @@
+﻿@model WebAplicativoEnsaio.Models.Musico
+
+@{
+    ViewData["Title"] = "Editar Músico";
+}
+
+<h1>Editar Músico</h1>
+
+<form asp-action="Edit" method="post">
+    <!-- Campo oculto para o ID do músico -->
+    <input type="hidden" asp-for="Id" />
+
+    <!-- Nome do músico -->
+    <div class="form-group mb-3">
+        <label for="Nome">Nome</label>
+        <input type="text" class="form-control" id="Nome" asp-for="Nome" required />
+    </div>
+
+    <!-- Grupo (A ou B) -->
+    <div class="form-group mb-3">
+        <label for="Grupo">Grupo</label>
+        <select class="form-control" asp-for="Grupo">
+            <option value="Grupo A" >Grupo A</option>
+            <option value="Grupo B" >Grupo B</option>
+        </select>
+    </div>
+
+    <!-- Seleção do Ensaio -->
+    <div class="form-group mb-3">
+        <label for="EnsaioId">Ensaio</label>
+        <select class="form-control" asp-for="EnsaioId">
+            <option value="">Selecione um Ensaio</option>
+            @foreach (var ensaio in ViewBag.Ensaios)
+            {
+                <option value="@ensaio.Id" >
+                    @ensaio.Data
+                </option>
+            }
+        </select>
+    </div>
+
+    <!-- Botões -->
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</form>

@@ -1,0 +1,28 @@
+﻿@model WebAplicativoEnsaio.Models.Musics
+
+@{
+    
+    ViewData["Title"] = "Adicionar Nova Música";
+}
+
+<h1>Adicionar Nova Música</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group mb-3">
+        <label for="Title">Título</label>
+        <input type="text" class="form-control" id="Title" name="Title" required />
+    </div>
+    <div class="form-group mb-3">
+        <label for="Notes">Observações</label>
+        <textarea class="form-control" id="Notes" name="Notes" rows="3"></textarea>
+    </div>
+    <div class="form-group mb-3">
+        <label for="YouTubeLink">Link do YouTube</label>
+        <input type="url" class="form-control" id="YouTubeLink" name="YouTubeLink" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</form>
+    
+
+

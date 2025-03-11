@@ -1,0 +1,71 @@
+﻿@model IEnumerable<WebAplicativoEnsaio.Models.Ensaio>
+
+@{
+    ViewData["Title"] = "Lista de Ensaios";
+}
+
+<h1 class="my-4">Lista de Ensaios</h1>
+
+<!-- Botão para voltar para a Home Page -->
+<div class="mb-3">
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Voltar para Inicio</a>
+</div>
+
+<!-- Botão para adicionar um novo ensaio -->
+<div class="mb-4">
+    <a asp-controller="Ensaio" asp-action="Create" class="btn btn-primary">Adicionar Novo Ensaio</a>
+</div>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Músicas</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ensaio in Model)
+            {
+                <tr>
+                    <td>@ensaio.Date.ToString("dd/MM/yyyy")</td>
+                    <td>@ensaio.Description</td>
+                    <td>
+                        @if (ensaio.Musics != null && ensaio.Musics.Any())
+                        {
+                            <ul>
+                                @foreach (var music in ensaio.Musics)
+                                {
+                                    <li>@music.Title</li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <span>Sem músicas cadastradas</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-controller="Ensaio" asp-action="Edit" asp-route-id="@ensaio.Id" class="btn btn-sm btn-warning">Editar</a>
+                        <a asp-controller="Ensaio" asp-action="Delete" asp-route-id="@ensaio.Id" class="btn btn-sm btn-danger">Excluir</a>
+
+                        <!-- Botão para enviar notificação no WhatsApp -->
+                        <a asp-controller="Ensaio" asp-action="EnviarNotificacaoWhatsApp" asp-route-ensaioId="@ensaio.Id"
+                           class="btn btn-sm btn-success">
+                            📩 Enviar WhatsApp
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning" role="alert">
+        Nenhum ensaio foi encontrado. Clique em <strong>Adicionar Novo Ensaio</strong> para começar.
+    </div>
+}

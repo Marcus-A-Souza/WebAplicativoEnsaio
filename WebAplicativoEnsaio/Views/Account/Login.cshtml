@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - WebAplicativoEnsaio</title>
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo {
+            max-width: 150px;
+            margin: 0 auto 20px;
+        }
+
+        .text-center {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <img src="images/LogoFarol.jpeg" alt="Logo" class="logo">
+
+        <form asp-action="Login" method="post">
+            <div class="form-group mb-3">
+                <label for="PhoneNumber">Número de Telefone</label>
+                <input type="text" class="form-control" id="PhoneNumber" name="PhoneNumber" required placeholder="Ex: Número de Telefone (sem o 81)">
+            </div>
+            <div class="form-group mb-3">
+                <label for="Password">Senha</label>
+                <input type="password" class="form-control" id="Password" name="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+        </form>
+        <div class="text-center mt-3">
+            <a asp-action="Register" asp-controller="Account">Não tem uma conta? Cadastre-se</a>
+        </div>
+    </div>
+</body>
+</html>
+

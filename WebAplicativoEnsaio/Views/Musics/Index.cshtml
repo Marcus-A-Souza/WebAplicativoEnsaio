@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebAplicativoEnsaio.Models.Musics>
+
+@{
+    ViewData["Title"] = "Lista de Músicas";
+}
+
+<div class="container">
+    <h1 class="text-center my-5">Lista de Músicas</h1>
+
+    <!-- Contêiner para botões alinhados à esquerda e espaçados -->
+    <div class="d-flex flex-column align-items-start" style="margin-top: 100px;">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary mb-3">Voltar para Início</a>
+        <a asp-controller="Musics" asp-action="Create" class="btn btn-primary">Adicionar Nova Música</a>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="table-responsive mt-4">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th style="text-align:center;">Título</th>
+                        <th style="text-align:center;">Observações</th>
+                        <th style="text-align:center;">Link do YouTube</th>
+                        <th style="text-align:center;">Data de Criação</th>
+                        <th style="text-align:center;">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var musics in Model)
+                    {
+                        <tr>
+                            <td style="color: black; text-align:center;">@musics.Title</td>
+                            <td style="color: black; text-align:center;">@musics.Notes</td>
+                            <td style="text-align:center;">
+                                @if (!string.IsNullOrEmpty(musics.YouTubeLink))
+                                {
+                                    <a href="@musics.YouTubeLink" target="_blank" class="btn btn-sm btn-outline-primary">Acessar</a>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Não disponível</span>
+                                }
+                            </td>
+                            <td style="color: black; text-align:center;">@musics.CreatedAt.ToString("dd/MM/yyyy")</td>
+                            <td class="text-center">
+                                <a asp-controller="Musics" asp-action="Edit" asp-route-id="@musics.Id" class="btn btn-sm btn-warning">Editar</a>
+                                <a asp-controller="Musics" asp-action="Delete" asp-route-id="@musics.Id" class="btn btn-sm btn-danger">Excluir</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning text-center mt-4" role="alert">
+            Nenhuma música foi encontrada. Clique em <strong>Adicionar Nova Música</strong> para começar.
+        </div>
+    }
+</div>

@@ -1,0 +1,37 @@
+﻿@model WebAplicativoEnsaio.Models.Musico
+
+@{
+    ViewData["Title"] = "Adicionar Novo Músico";
+}
+
+<h1>Adicionar Novo Músico</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group mb-3">
+        <label for="Nome">Nome</label>
+        <input type="text" class="form-control" id="Nome" name="Nome" required />
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="Grupo">Grupo</label>
+        <select class="form-control" id="Grupo" name="Grupo">
+            <option value="Grupo A">Grupo A</option>
+            <option value="Grupo B">Grupo B</option>
+        </select>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="EnsaioId">Ensaio</label>
+        <select class="form-control" id="EnsaioId" name="EnsaioId">
+            <option value="">Selecione ua Data</option>
+            @foreach (var ensaio in ViewBag.EnsaioId)
+            {
+                <option value="@ensaio.Id">@ensaio.Data</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</form>
+
